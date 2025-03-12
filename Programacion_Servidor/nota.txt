@@ -1,0 +1,31 @@
+Proposito generar un codigo HTML, CSS o JS de manera dinamica a partir de una fuente escrito en un lenguaje de programacion 
+
+**Tecnologia  p/Servidor **
+Perl -> Perl
+Asp  -> UB script 
+Aspx -> Ub .NET, C#, J# , F#
+ASP core -> C#
+JSP  -> Java
+nodleJS -> JS
+PHP -> PHP
+
+*** Logica de funcionamiento tradiconal ***
+
+**Reset**
+CTE -> HTML <- SRV <---> GCI <---> lenguaje de programacion
+
+**Proxy inverso**
+                            -------- SRV1  Log programacion
+                            |
+                            |
+CTE -> HTML <- SRV <---> Proxy
+                            |
+                            |
+                            |------SRV 2 Log programacion
+                            |
+                            |
+                            |
+                            SRV 3 log programacion
+
+
+

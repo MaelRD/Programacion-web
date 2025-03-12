@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Calcular Edad</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><label>Fecha de nacimiento:</label></td>
+            <td><input type="text" id="fecha" placeholder="dd/mm/yyyy"></td>
+        </tr>
+    </table>
+
+    <button onclick="Aceptar()">Obtener Edad</button>
+    <p id="resultado"></p>
+
+    <button onclick="limpiar()">Limpiar</button>
+
+    <script>
+        function Aceptar() {
+            // Obtener el valor del input
+            const fechaInput = document.getElementById("fecha").value;
+
+            // Convertir la cadena 
+            const partesFecha = fechaInput.split("/");
+            const fechaFormatoISO = `${partesFecha[2]}-${partesFecha[1]}-${partesFecha[0]}`; // Formato YYYY-MM-DD
+
+      
+            // Obtener la fecha actual
+            const fechaActual = new Date();
+            
+            // Calcular la edad
+            let edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear();
+            const mesActual = fechaActual.getMonth();
+            const diaActual = fechaActual.getDate();
+            const mesesCumplidos = mesActual -fechaNacimiento.getMonth
+
+            // Ajustar la edad si el cumpleaños no ha ocurrido este año
+            if (mesActual < fechaNacimiento.getMonth() || 
+               (mesActual === fechaNacimiento.getMonth() && diaActual < fechaNacimiento.getDate())) {
+                edad--;
+            }
+
+
+            // Mostrar la edad en el párrafo
+            document.getElementById("resultado").textContent = "tiene " + edad + " años con "+ mesesCumplidos + " meses";
+        }
+
+        function limpiar() {
+            // Limpiar el campo de fecha y el resultado
+            document.getElementById("fecha").value = "";
+            document.getElementById("resultado").textContent = "";
+        }
+    </script>
+</body>
+</html>

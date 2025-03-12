@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Fecha</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><label>Dia</label></td>
+            <td><input type="number" id="dia" min="1" max="31"></td>
+
+            <td><label>Mes</label></td>
+            <td><input type="number" id="mes" min="1" max="12"></td>
+
+            <td><label>Año</label></td>
+            <td><input type="number" id="ano"></td>
+        </tr>
+    </table>
+
+    <button onclick="mostrarFecha()">Obtener Fecha</button>
+    <p id="resultado"></p>
+
+    <button onclick="limpiar()">Limpiar</button>
+    <p id = "limpiar"></p>
+
+
+ 
+
+    <script>
+        function mostrarFecha() {
+            // Obtener valores de los inputs
+            const dia = document.getElementById("dia").value;
+            const mes = document.getElementById("mes").value;
+            const ano = document.getElementById("ano").value;
+
+            // Verificar que todos los campos esten completos
+            if (dia && mes && ano) {
+                // Crear un objeto Date para verificar is fecha 
+                const fecha = new Date(`${ano}-${mes}-${dia}`);
+                if (fecha.getDate() == dia && (fecha.getMonth() + 1) == mes && fecha.getFullYear() == ano) {
+                    // Mostrar la fecha en el formato deseado
+                    document.getElementById("resultado").innerText = `La fecha es: ${dia}/${mes}/${ano}`;
+                } else {
+                    document.getElementById("resultado").innerText = "Fecha no válida. Por favor revisa los valores.";
+                }
+            } else {
+                document.getElementById("resultado").innerText = "Por favor completa todos los campos.";
+            }
+        }
+
+    </script>
+</body>
+</html>
